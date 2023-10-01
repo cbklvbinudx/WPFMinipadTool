@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="MinipadWPFTest.Controls.DKey"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:controls="clr-namespace:MinipadWPFTest.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="5"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5"/>
+        </Grid.RowDefinitions>
+        <Label Content="Digital Key" Grid.Row="1" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBlock Text="{Binding KeyName}" Grid.Row="1" Grid.Column="3" Margin="5" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        <Label Content="Key" Grid.Row="3" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <controls:HotKeyTextBox Grid.Row="3" Grid.Column="3" Margin="5"
+        Width="Auto" Foreground="White"
+        VerticalAlignment="Center"
+        HotKey="{Binding Key}"
+        Style="{DynamicResource MaterialDesignTextBox}"
+        TextAlignment="Center" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,58 @@
+﻿<Window x:Class="MinipadWPFTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MinipadWPFTest"
+        xmlns:controls="clr-namespace:MinipadWPFTest.Controls"
+        mc:Ignorable="d" Background="#202020"
+        Title="MainWindow" Height="450" Width="1150">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <Label Content="Minipad test WPF" Margin="5" FontSize="30" FontWeight="Bold"/>
+            <!--
+            <Button Content="Add HeKey" Margin="5" Command="{Binding AddAnalogKeyCommand}"/>
+            <Button Content="Remove Last HeKey" Margin="5" Command="{Binding RemoveAnalogKeyCommand}"/>
+            <Button Content="Add DKey" Margin="5" Command="{Binding AddDigitalKeyCommand}"/>
+            <Button Content="Remove Last DKey" Margin="5" Command="{Binding RemoveDigitalKeyCommand}"/>
+            <Button Content="Test" Margin="5" Command="{Binding TestCommand}"/>
+            -->
+            <Button Content="Get config" Margin="5" Command="{Binding GetKeyValuesCommand}"/>
+            <Button Content="Apply config" Margin="5" Command="{Binding ApplyHEKeysCommand}"/>
+            <Button Content="Refresh" Margin="5" Command="{Binding RefreshMinipadsCommand}"/>
+            <Button Content="{Binding VisualizeButtonText}" Margin="5" Command="{Binding StartVisualizationCommand}"/>
+            <Button Content="{Binding CalibrationText}" Margin="5" Command="{Binding CalibrationCommand}"/>
+            <ComboBox IsEnabled="{Binding EnableChangingComport}" ItemsSource="{Binding MinipadPorts}" SelectedIndex="{Binding SelectedComDeviceIndex, Mode=TwoWay}" Width="200" Margin="5" Foreground="White"/>
+        </StackPanel>
+        <DockPanel IsEnabled="{Binding EnableUI}">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" DockPanel.Dock="Top" Height="300">
+                <ItemsControl ItemsSource="{Binding HKeys}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <controls:HEKey />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                <ItemsControl ItemsSource="{Binding DKeys}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <controls:DKey />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </DockPanel>
+    </DockPanel>
+</Window>
