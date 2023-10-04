@@ -2,6 +2,7 @@
 using MinipadWPFTest.Models;
 using MinipadWPFTest.Utils;
 using System;
+using Serilog;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -23,6 +24,9 @@ namespace MinipadWPFTest.ViewModels
             get => GetValue<bool>();
             set { SetValue(value); }
         }
+
+        private static readonly ILogger log = new LoggerConfiguration().WriteTo.File("errorlog-.txt", 
+            outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:}{NewLine}{Exception}", rollingInterval: RollingInterval.Day).CreateLogger();
 
         public MainViewModel() 
         {
@@ -49,6 +53,28 @@ namespace MinipadWPFTest.ViewModels
             BindingOperations.EnableCollectionSynchronization(MinipadPorts, _minipadPortsSync);
 
             _dispatcher = Application.Current.Dispatcher;
+        }
+
+        public void HandleException(DispatcherUnhandledExceptionEventArgs e)
+        {
+            log.Error(PrepareExceptionLogMessage(e.Exception));
+            MessageBox.Show("An unhandled exception has been thrown.\nPlease report it to the developer and include the errorlog-%date%.log file located beside this exe", "Unhandled exception");
+        }
+
+        private string PrepareExceptionLogMessage(Exception exception)
+        {
+            return "Unhandled exception caught.\n" + PrepareExceptionMessage(exception);
+        }
+
+        private string PrepareExceptionMessage(Exception e)
+        {
+            string message = $"Exception: {e.GetType()}\nStackTrace: {e.StackTrace}\nSSource: {e.Source}\nMessage: {e.Message}";
+            if(e.InnerException != null)
+            {
+                message += "\n" + PrepareExceptionMessage(e.InnerException);
+            }
+
+            return message;
         }
 
         public ICommand TestCommand { get; private set; }
