@@ -543,6 +543,7 @@ namespace MinipadWPFTest.ViewModels
                 $"hkey{keynum}.uh {key.UH}",
                 $"hkey{keynum}.lh {key.LH}",
                 $"hkey{keynum}.char {key.Key.Key.ToString()}",
+                $"hkey{keynum}.hid 1",
                 "save"
             };
             int failed = 0;
