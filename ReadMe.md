@@ -1,4 +1,4 @@
-A fork which also sets the HID input of keys to true when you set the config
+A fork which also sets the HID input of keys to true when setting the config
 
 A tool for configuring a minipad via a WPF application
 

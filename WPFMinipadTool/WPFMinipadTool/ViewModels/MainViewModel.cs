@@ -246,12 +246,12 @@ namespace MinipadWPFTest.ViewModels
             if (ShouldVisualize)
             {
                 ShouldVisualize = false;
-                VisualizeButtonText = "Start Visualize";
+                VisualizeButtonText = "Start visualization";
             }
             else
             {
                 ShouldVisualize = true;
-                VisualizeButtonText = "Stop Visualize";
+                VisualizeButtonText = "Stop visualization";
                 await VisualizeTask(_selectedComPort);
             }
         }
@@ -289,6 +289,7 @@ namespace MinipadWPFTest.ViewModels
                         var key = HKeys[i];
                         //key.Value = vals.Item2[i];
                         var value = (float)(400 - vals.MappedValues[i]);
+                        key.ValueContent = "Value";
                         key.ValueText = $"{Math.Round(value / 100, 2)} mm pressed";
                     }
                     await Task.Delay(10);

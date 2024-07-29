@@ -9,7 +9,7 @@
 
         <s:ApplicationLoader>
             <ResourceDictionary.MergedDictionaries>
-                <materialDesign:BundledTheme BaseTheme="Dark" PrimaryColor="Teal" SecondaryColor="LightGreen" />
+                <materialDesign:CustomColorTheme BaseTheme="Dark" PrimaryColor="#9b59b6" SecondaryColor="#f3c30c" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
             </ResourceDictionary.MergedDictionaries>
 

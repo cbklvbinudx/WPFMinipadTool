@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MinipadWPFTest"
         xmlns:controls="clr-namespace:MinipadWPFTest.Controls"
-        mc:Ignorable="d" Background="#202020"
-        Title="MainWindow" Height="450" Width="1150">
+        mc:Ignorable="d" Background="#1b1b1d"
+        Title="MainWindow" Height="550" Width="1150">
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-            <Label Content="Minipad test WPF" Margin="5" FontSize="30" FontWeight="Bold"/>
+            <Border Name="LabelBorder" Background="#f3c30c" CornerRadius="10" Margin="10">
+            <Label Content="Minipad test WPF" Margin="2" FontSize="20" FontWeight="Bold" Foreground="#9b59b6"/>
+            </Border>
             <!--
             <Button Content="Add HeKey" Margin="5" Command="{Binding AddAnalogKeyCommand}"/>
             <Button Content="Remove Last HeKey" Margin="5" Command="{Binding RemoveAnalogKeyCommand}"/>
@@ -25,7 +27,7 @@
             <ComboBox IsEnabled="{Binding EnableChangingComport}" ItemsSource="{Binding MinipadPorts}" SelectedIndex="{Binding SelectedComDeviceIndex, Mode=TwoWay}" Width="200" Margin="5" Foreground="White"/>
         </StackPanel>
         <DockPanel IsEnabled="{Binding EnableUI}">
-            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" DockPanel.Dock="Top" Height="300">
+            <ScrollViewer Margin="0,60,0,0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" DockPanel.Dock="Top" Height="300" HorizontalAlignment="Center">
                 <ItemsControl ItemsSource="{Binding HKeys}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>

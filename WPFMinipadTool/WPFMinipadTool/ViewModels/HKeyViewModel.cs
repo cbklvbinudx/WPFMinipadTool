@@ -30,6 +30,11 @@ namespace MinipadWPFTest.ViewModels
             get => GetValue<string>();
             set => SetValue(value);
         }
+        public string ValueContent
+        {
+            get => GetValue<string>();
+            set => SetValue(value);
+        }
         public string KeyName 
         { 
             get { return GetValue<string>(); }

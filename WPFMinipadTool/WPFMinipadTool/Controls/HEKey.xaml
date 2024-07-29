@@ -40,7 +40,7 @@
             <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
         <Label Content="Hall effect key" Grid.Row="1" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBlock Text="{Binding KeyName}" Grid.Row="1" Grid.Column="3" Margin="5" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBlock Text="{Binding KeyName}" Grid.Row="1" Grid.Column="3" Margin="5" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
         <Label Content="Rapid trigger" Grid.Row="3" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <CheckBox IsChecked="{Binding RapidTrigger}" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center"  Margin="5" HorizontalAlignment="Center"/>
@@ -85,7 +85,7 @@
         Style="{DynamicResource MaterialDesignTextBox}"
         TextAlignment="Center" />
         
-        <Label Content="Value" Grid.Row="17" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Content="{Binding ValueContent}" Grid.Row="17" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Label Content="{Binding ValueText}" Grid.Row="17" Grid.Column="3" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
     </Grid>
 </UserControl>
