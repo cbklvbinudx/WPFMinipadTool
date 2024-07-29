@@ -1,4 +1,6 @@
-A tool for configuring a minipad via an WPF application
+A fork which also sets the HID input of keys to true when you set the config
+
+A tool for configuring a minipad via a WPF application
 
 Projects where I've used parts from:
 
